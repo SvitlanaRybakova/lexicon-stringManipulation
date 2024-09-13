@@ -28,7 +28,7 @@ namespace stringManipulation
         public static void ShowSinemaMenu()
         {
             Console.WriteLine("***** The Sinema Menu *****");
-            Console.WriteLine($"{Quit}. Exit the programm");
+            Console.WriteLine($"{Quit}. Back to the Main Menu");
             Console.WriteLine($"{SingleTicket}. Display the Single Ticket price ");
             Console.WriteLine($"{GroupTicket}. Display the Group Ticket price");
 

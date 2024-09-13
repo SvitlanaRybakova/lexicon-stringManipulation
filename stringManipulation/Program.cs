@@ -48,6 +48,7 @@ void RenderSinemaMenu()
         switch (input)
         {
             case MenuHelpers.SingleTicket:
+                CalculateTheSingleTicket();
                 break;
             case MenuHelpers.GroupTicket:
                 break;
@@ -62,6 +63,24 @@ void RenderSinemaMenu()
         }
 
     } while (isOpen);
+}
+
+void CalculateTheSingleTicket()
+{
+    string input = Utils.AskForString("Enter the user age");
+
+
+    if (int.TryParse(input, out int result))
+    {
+        User user = new User(result);
+        Console.WriteLine(user);
+    }
+    else
+    {
+        Console.WriteLine("Please enter a valid age");
+    }
+
+
 }
 
 RenderMainMenu();
