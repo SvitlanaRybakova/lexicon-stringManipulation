@@ -45,7 +45,7 @@ namespace stringManipulation
             }
             else
             {
-                throw new ArgumentException("Invalid age provided");
+                Utils.PrintErrorMessage("Please enter a valid age");
             }
         }
 
@@ -54,6 +54,11 @@ namespace stringManipulation
             return $"Age: {Age}, Group: {Group}, Ticket Price: {TicketPrice}";
         }
 
-
+        public void DisplayUserInformation()
+        {
+            Utils.InfoConsoleColor();
+            Console.WriteLine(this); // call the overridden ToString() and this.user
+            Utils.DefaultConsoleColor();
+        }
     }
 }

@@ -11,7 +11,7 @@ void RenderMainMenu()
 
         MenuHelpers.ShowMainMenu();
 
-        string input = Console.ReadLine();
+        string input = Console.ReadLine() ?? string.Empty;
 
         switch (input)
         {
@@ -28,7 +28,7 @@ void RenderMainMenu()
                 isOpen = false;
                 break;
             default:
-                MenuHelpers.InvalidVal();
+                Utils.PrintErrorMessage("Invalid menu value, please enter the correct menu number");
                 break;
         }
 
@@ -43,7 +43,7 @@ void RenderSinemaMenu()
     {
         MenuHelpers.ShowSinemaMenu();
 
-        string input = Console.ReadLine();
+        string input = Console.ReadLine() ?? string.Empty;
 
         switch (input)
         {
@@ -53,13 +53,11 @@ void RenderSinemaMenu()
             case MenuHelpers.GroupTicket:
                 CalculateTheGroupTicket();
                 break;
-            case MenuHelpers.ThirdWord:
-                break;
             case MenuHelpers.Quit:
                 isOpen = false;
                 break;
             default:
-                MenuHelpers.InvalidVal();
+                Utils.PrintErrorMessage("Invalid menu value, please enter the correct menu number");
                 break;
         }
 
@@ -70,17 +68,15 @@ void CalculateTheSingleTicket()
 {
     string input = Utils.AskForString("Enter the user age");
 
-
     if (int.TryParse(input, out int result))
     {
         User user = new User(result);
-        Console.WriteLine(user);
+        user.DisplayUserInformation();
     }
     else
     {
-        Console.WriteLine("Please enter a valid age");
+        Utils.PrintErrorMessage("Please enter a valid age");
     }
-
 
 }
 
@@ -92,7 +88,7 @@ void CalculateTheGroupTicket()
         // Ask for the user's age
         string input = Utils.AskForString("Enter the user age");
         UserGroup group = new UserGroup();
-        
+
         if (int.TryParse(input, out int age))
         {
             bool isContinue = true;
@@ -101,37 +97,37 @@ void CalculateTheGroupTicket()
                 // Ask if they want to continue adding users
                 string askForContinue = Utils.AskForString("Do you want to buy more tickets? (yes/no)");
 
-                switch (askForContinue.ToLower()) 
+                switch (askForContinue.ToLower())
                 {
                     case "yes":
                         group.AddUserToList(age);
-                        
+
                         string newAgeInput = Utils.AskForString("Enter the user age");
                         if (int.TryParse(newAgeInput, out int newAge))
                         {
-                            age = newAge;  
+                            age = newAge;
                         }
                         else
                         {
-                            Console.WriteLine("Please enter a valid age");
+                            Utils.PrintErrorMessage("Please enter a valid age");
+
                         }
                         break;
 
                     case "no":
-                      
-                        group.AddUserToList(age);  
+
+                        group.AddUserToList(age);
                         group.DisplayUserGroupInformation();
                         isContinue = false;
-                        isOpen = false; 
+                        isOpen = false;
                         break;
 
                     default:
-                    
-                        MenuHelpers.InvalidVal();
+                        Utils.PrintErrorMessage("Invalid menu value, please enter the correct one");
                         break;
                 }
 
-            } while (isContinue); 
+            } while (isContinue);
 
         }
         else
@@ -139,7 +135,7 @@ void CalculateTheGroupTicket()
             Console.WriteLine("Please enter a valid age");
         }
 
-    } while (isOpen); 
+    } while (isOpen);
 }
 
 RenderMainMenu();

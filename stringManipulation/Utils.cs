@@ -10,7 +10,7 @@ namespace stringManipulation
             do
             {
                 Console.Write($"{prompt}:");
-                answer = Console.ReadLine();
+                answer = Console.ReadLine() ?? string.Empty;
 
                 if (string.IsNullOrWhiteSpace(answer))
                 {
@@ -24,6 +24,27 @@ namespace stringManipulation
             } while (!success);
 
             return answer;
+        }
+
+        public static void DefaultConsoleColor()
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
+        public static void InfoConsoleColor()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+        }
+        public static void ErrorConsoleColor()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+        }
+
+          public static void PrintErrorMessage(string message)
+        {
+            ErrorConsoleColor();
+             Console.WriteLine(message);
+            DefaultConsoleColor();
         }
     }
 }

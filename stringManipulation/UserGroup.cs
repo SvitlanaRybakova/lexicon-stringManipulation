@@ -27,6 +27,7 @@ namespace stringManipulation
             var (users, totalTickets, totalPrice) = GetUserGroupInformation();
 
         
+            Utils.InfoConsoleColor();
             foreach (User user in users)
             {
                 Console.WriteLine(user); // call the overridden ToString() 
@@ -34,6 +35,7 @@ namespace stringManipulation
 
             Console.WriteLine($"Total Tickets: {totalTickets}");
             Console.WriteLine($"Total Price: {totalPrice}");
+            Utils.DefaultConsoleColor();
         }
     }
 }
