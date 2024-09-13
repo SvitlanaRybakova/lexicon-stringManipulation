@@ -1,4 +1,4 @@
-namespace stringManipulation
+﻿namespace stringManipulation
 {
     public class User
     {

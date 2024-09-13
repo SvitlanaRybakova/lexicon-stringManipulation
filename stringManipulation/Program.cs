@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using System.Text;
 using stringManipulation;
 
 void RenderMainMenu()
@@ -19,7 +20,8 @@ void RenderMainMenu()
                 RenderSinemaMenu();
                 break;
             case MenuHelpers.Repeat:
-
+                RepeatTenTimes();
+                isOpen = false;
                 break;
             case MenuHelpers.ThirdWord:
 
@@ -80,6 +82,7 @@ void CalculateTheSingleTicket()
 
 }
 
+
 void CalculateTheGroupTicket()
 {
     bool isOpen = true;
@@ -138,4 +141,18 @@ void CalculateTheGroupTicket()
     } while (isOpen);
 }
 
+void RepeatTenTimes()
+{
+    const int RepeatedTimes = 10;
+    string input = Utils.AskForString("Enter any phrase");
+
+    StringBuilder builder = new StringBuilder();
+
+    for (int i = 1; i <= RepeatedTimes; i++)
+    {
+        builder.Append($"{i}.{input}; ");
+    }
+
+    Console.WriteLine(builder.ToString());
+}
 RenderMainMenu();

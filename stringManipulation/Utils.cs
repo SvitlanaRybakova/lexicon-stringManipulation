@@ -1,4 +1,4 @@
-namespace stringManipulation
+﻿namespace stringManipulation
 {
     public class Utils
     {
@@ -40,10 +40,10 @@ namespace stringManipulation
             Console.ForegroundColor = ConsoleColor.Red;
         }
 
-          public static void PrintErrorMessage(string message)
+        public static void PrintErrorMessage(string message)
         {
             ErrorConsoleColor();
-             Console.WriteLine(message);
+            Console.WriteLine(message);
             DefaultConsoleColor();
         }
     }
