@@ -51,6 +51,7 @@ void RenderSinemaMenu()
                 CalculateTheSingleTicket();
                 break;
             case MenuHelpers.GroupTicket:
+                CalculateTheGroupTicket();
                 break;
             case MenuHelpers.ThirdWord:
                 break;
@@ -81,6 +82,64 @@ void CalculateTheSingleTicket()
     }
 
 
+}
+
+void CalculateTheGroupTicket()
+{
+    bool isOpen = true;
+    do
+    {
+        // Ask for the user's age
+        string input = Utils.AskForString("Enter the user age");
+        UserGroup group = new UserGroup();
+        
+        if (int.TryParse(input, out int age))
+        {
+            bool isContinue = true;
+            do
+            {
+                // Ask if they want to continue adding users
+                string askForContinue = Utils.AskForString("Do you want to buy more tickets? (yes/no)");
+
+                switch (askForContinue.ToLower()) 
+                {
+                    case "yes":
+                        group.AddUserToList(age);
+                        
+                        string newAgeInput = Utils.AskForString("Enter the user age");
+                        if (int.TryParse(newAgeInput, out int newAge))
+                        {
+                            age = newAge;  
+                        }
+                        else
+                        {
+                            Console.WriteLine("Please enter a valid age");
+                        }
+                        break;
+
+                    case "no":
+                      
+                        group.AddUserToList(age);  
+                        group.DisplayUserGroupInformation();
+                        isContinue = false;
+                        isOpen = false; 
+                        break;
+
+                    default:
+                    
+                        MenuHelpers.InvalidVal();
+                        break;
+                }
+
+            } while (isContinue); 
+
+        }
+        else
+        {
+            Console.WriteLine("Please enter a valid age");
+        }
+
+    } while (isOpen); 
 }
 
 RenderMainMenu();
