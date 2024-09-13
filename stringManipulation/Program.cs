@@ -21,10 +21,9 @@ void RenderMainMenu()
                 break;
             case MenuHelpers.Repeat:
                 RepeatTenTimes();
-                isOpen = false;
                 break;
             case MenuHelpers.ThirdWord:
-
+                GetThirdWord();
                 break;
             case MenuHelpers.Quit:
                 isOpen = false;
@@ -153,6 +152,22 @@ void RepeatTenTimes()
         builder.Append($"{i}.{input}; ");
     }
 
-    Console.WriteLine(builder.ToString());
+    Utils.PrintInfoMessage(builder.ToString());
+}
+
+void GetThirdWord()
+{
+    string input = Utils.AskForString("Please enter a sentence with exactly 3 words");
+    string[] words = input.Split(' ');
+
+    if (words.Length == 3)
+    {
+        string thirdWord = words[2];
+        Utils.PrintInfoMessage($"The third word is: {thirdWord}");
+    }
+    else
+    {
+        Utils.PrintErrorMessage("The sentence does not contain exactly 3 words.");
+    }
 }
 RenderMainMenu();

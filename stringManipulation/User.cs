@@ -56,9 +56,11 @@
 
         public void DisplayUserInformation()
         {
-            Utils.InfoConsoleColor();
-            Console.WriteLine(this); // call the overridden ToString() and this.user
-            Utils.DefaultConsoleColor();
+            Utils.PrintInfoMessage(this.ToString());
+
+            // Utils.InfoConsoleColor();
+            // Console.WriteLine(this); // call the overridden ToString() and this.user
+            // Utils.DefaultConsoleColor();
         }
     }
 }

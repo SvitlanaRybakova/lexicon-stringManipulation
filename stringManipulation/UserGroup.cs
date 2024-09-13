@@ -27,15 +27,13 @@
             var (users, totalTickets, totalPrice) = GetUserGroupInformation();
 
 
-            Utils.InfoConsoleColor();
             foreach (User user in users)
             {
-                Console.WriteLine(user); // call the overridden ToString() 
+                Utils.PrintInfoMessage(user.ToString());
             }
 
-            Console.WriteLine($"Total Tickets: {totalTickets}");
-            Console.WriteLine($"Total Price: {totalPrice}");
-            Utils.DefaultConsoleColor();
+            Utils.PrintInfoMessage($"Total Tickets: {totalTickets}");
+            Utils.PrintInfoMessage($"Total Price: {totalPrice}");
         }
     }
 }

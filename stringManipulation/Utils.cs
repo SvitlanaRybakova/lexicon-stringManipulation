@@ -9,7 +9,7 @@
 
             do
             {
-                Console.Write($"{prompt}:");
+                Console.Write($"{prompt}: ");
                 answer = Console.ReadLine() ?? string.Empty;
 
                 if (string.IsNullOrWhiteSpace(answer))
@@ -43,6 +43,13 @@
         public static void PrintErrorMessage(string message)
         {
             ErrorConsoleColor();
+            Console.WriteLine(message);
+            DefaultConsoleColor();
+        }
+
+        public static void PrintInfoMessage(string message)
+        {
+            InfoConsoleColor();
             Console.WriteLine(message);
             DefaultConsoleColor();
         }
