@@ -28,6 +28,7 @@ void RenderMainMenu()
                 isOpen = false;
                 break;
             default:
+                MenuHelpers.InvalidVal();
                 break;
         }
 
@@ -36,7 +37,6 @@ void RenderMainMenu()
 
 void RenderSinemaMenu()
 {
-
     bool isOpen = true;
 
     do
@@ -57,6 +57,7 @@ void RenderSinemaMenu()
                 isOpen = false;
                 break;
             default:
+                MenuHelpers.InvalidVal();
                 break;
         }
 

@@ -34,5 +34,11 @@ namespace stringManipulation
 
         }
 
+        public static void InvalidVal()
+        {
+            Console.WriteLine("Invalid menu value, please enter the correct menu number");
+        }
     }
+
+
 }
