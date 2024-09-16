@@ -1,4 +1,6 @@
-﻿namespace stringManipulation
+﻿// Licensed to the .NET Foundation under one or more agreements.
+
+namespace stringManipulation
 {
     public class User
     {

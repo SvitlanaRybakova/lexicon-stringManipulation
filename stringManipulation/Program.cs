@@ -1,4 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿// Licensed to the .NET Foundation under one or more agreements.
 
 using System.Text;
 using stringManipulation;
